@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ArduinoBluetooth</string>
+    <string name="clear_button">Clear</string>
+    <string name="stop_button">Stop</string>
+    <string name="send_button">Send</string>
+    <string name="start_button">Start</string>
+    <string name="edit_text_hint">Value to send</string>
+    <string name="DEVICE_ADDRESS">xxxx</string>
+    <string name="SERIAL_PORT_SERVICE_ID">00001101-0000-1000-8000-00805f9b34fb</string>
+</resources>
