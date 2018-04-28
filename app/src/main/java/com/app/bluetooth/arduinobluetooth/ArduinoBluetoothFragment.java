@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Created by kawtar on 27/04/2018.
  */
@@ -88,6 +90,20 @@ public class ArduinoBluetoothFragment extends Fragment implements ArduinoBluetoo
 
         });
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if( resultCode == RESULT_OK ) {
+           boolean found =  mActionsListener.startBTDeviceDiscovery();
+           if(!found){
+               setToastMsg("Unable to find BT device");
+           }
+        }
+        else{
+            setToastMsg("Unable to enable BT");
+        }
+    }
+
     @Override
     public void clearEditText() {
         textView.setText("");
@@ -108,7 +124,7 @@ public class ArduinoBluetoothFragment extends Fragment implements ArduinoBluetoo
 
     @Override
     public void startActivityBluetooth(Intent enableAdapter, int requestCode) {
-        startActivityForResult(enableAdapter, requestCode);
+        getActivity().startActivityForResult(enableAdapter, requestCode);
     }
 
     @Override
